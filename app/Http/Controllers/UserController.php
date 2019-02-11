@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('updated_at', 'desc');
+        $users = User::orderBy('updated_at', 'desc')->get();
         return $users->toJson();
     }
 
@@ -56,12 +56,13 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+        return $user->toJson();
     }
 
     /**
@@ -84,7 +85,19 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'min:7|max:255',
+            'email' => 'email|max:255',
+            'phone' => 'min:9|max:15'
+        ]);
+
+        $user->name = $validatedData->name;
+        $user->email = $validatedData->email;
+        $user->phone = $validatedData->phone;
+
+        $user->save();
+
+        return response()->json('User Updated!');
     }
 
     /**
@@ -95,6 +108,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return response()->json('User Removed!');
     }
 }
