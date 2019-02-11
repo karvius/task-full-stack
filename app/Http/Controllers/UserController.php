@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::orderBy('updated_at', 'desc');
+        return $users->toJson();
     }
 
     /**
@@ -24,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**
@@ -35,7 +36,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|min:7|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|min:9|max:15'
+        ]);
+
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'phone' => $validatedData['phone']
+        ]);
+
+        $user->save();
+
+        return response()->json('User Created!');
     }
 
     /**
