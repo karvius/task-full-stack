@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './common/Header';
 import UsersList from './users/UsersList';
 import NewUser from './users/NewUser';
+import EditUser from './users/EditUser';
 
 export default class App extends Component {
     render() {
@@ -14,6 +15,7 @@ export default class App extends Component {
                     <Switch>
                         <Route exact path="/" component={UsersList} />
                         <Route path="/create" component={NewUser} />
+                        <Route path="/edit" component={EditUser} />
                     </Switch>
                 </div>
             </BrowserRouter>
