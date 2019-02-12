@@ -19,11 +19,13 @@ export class UsersList extends Component {
     }
 
     onDeleteClick(user) {
-        console.log(user);
-    }
-
-    onEditClick(user) {
-        console.log(user);
+        axios.delete(`api/user/${user.id}`).then(() => {
+            axios.get('api/user').then(response => {
+                this.setState({
+                    users: response.data
+                });
+            });
+        });
     }
 
     render() {
@@ -35,12 +37,9 @@ export class UsersList extends Component {
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
                 <td>
-                    <button
-                        onClick={this.onEditClick.bind(this, user)}
-                        className="btn btn-success btn-sm"
-                    >
+                    <Link className="btn btn-success btn-sm" to="/edit">
                         Edit
-                    </button>
+                    </Link>
                     <button
                         onClick={this.onDeleteClick.bind(this, user)}
                         className="btn btn-danger btn-sm"
