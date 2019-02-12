@@ -14,3 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::apiResource('user', 'UserController');
+Route::get('random', 'UserController@importRandom');

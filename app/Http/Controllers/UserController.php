@@ -93,4 +93,24 @@ class UserController extends Controller
         $user->delete();
         return response()->json('User Removed!');
     }
+
+    /**
+     * Import random user from JSONplaceholder API
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function importRandom(\PlaceholderApiService $palceholder)
+    {
+        $randomUser = $palceholder->getRandomUser();
+
+        $user = User::create([
+            'name' => $randomUser['name'],
+            'email' => $randomUser['email'],
+            'phone' => $randomUser['phone']
+        ]);
+
+        $user->save();
+
+        return response()->json('Random User Imported!');        
+    }
 }

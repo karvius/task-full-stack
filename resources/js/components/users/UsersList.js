@@ -28,6 +28,17 @@ export class UsersList extends Component {
         });
     }
 
+    onImportClick() {
+        axios.get('api/random').then(() => {
+            axios.get('api/user').then(response => {
+                console.log(response.data);
+                this.setState({
+                    users: response.data
+                });
+            });
+        });
+    }
+
     render() {
         const { users } = this.state;
 
@@ -62,6 +73,12 @@ export class UsersList extends Component {
                                 <Link className="btn btn-primary" to="/create">
                                     New User
                                 </Link>
+                                <button
+                                    onClick={this.onImportClick.bind(this)}
+                                    className="btn btn-warning"
+                                >
+                                    Import Random User
+                                </button>
                             </div>
                             <div className="card-body table-responsive">
                                 <table className="table">
