@@ -6,7 +6,7 @@ class PlaceholderApiService
   public function getRandomUser()
   {
     $client = new \GuzzleHttp\Client();
-    $randomInt = rand(0,9);
+    $randomInt = rand(1,10);
     $response = $client->request('GET', 'https://jsonplaceholder.typicode.com/users/'.$randomInt);
     $data = json_decode($response->getBody());
     
