@@ -99,9 +99,9 @@ class UserController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function importRandom(\PlaceholderApiService $palceholder)
+    public function importRandom(\PlaceholderApiService $placeholder)
     {
-        $randomUser = $palceholder->getRandomUser();
+        $randomUser = $placeholder->getRandomUser();
 
         $user = User::create([
             'name' => $randomUser['name'],
