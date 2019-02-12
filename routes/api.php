@@ -13,4 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::resource('user', 'UserController');
+Route::apiResource('user', 'UserController');

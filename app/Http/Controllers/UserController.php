@@ -19,16 +19,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        // 
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -56,7 +46,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -66,34 +56,25 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
+        $user = User::find($id);
+
         $validatedData = $request->validate([
-            'name' => 'min:7|max:255',
-            'email' => 'email|max:255',
-            'phone' => 'min:9|max:15'
+            'name' => 'required|min:7|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|min:9|max:15'
         ]);
 
-        $user->name = $validatedData->name;
-        $user->email = $validatedData->email;
-        $user->phone = $validatedData->phone;
+        $user->name = $validatedData['name'];
+        $user->email = $validatedData['email'];
+        $user->phone = $validatedData['phone'];
 
         $user->save();
 
@@ -103,11 +84,12 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
+        $user = User::find($id);
         $user->delete();
         return response()->json('User Removed!');
     }

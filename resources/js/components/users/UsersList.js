@@ -36,13 +36,13 @@ export class UsersList extends Component {
                 <td>{user.phone}</td>
                 <td>
                     <button
-                        onClick={this.onEditClick.bind(null, user)}
+                        onClick={this.onEditClick.bind(this, user)}
                         className="btn btn-success btn-sm"
                     >
                         Edit
                     </button>
                     <button
-                        onClick={this.onDeleteClick.bind(null, user)}
+                        onClick={this.onDeleteClick.bind(this, user)}
                         className="btn btn-danger btn-sm"
                     >
                         Delete
