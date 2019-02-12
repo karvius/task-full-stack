@@ -63,7 +63,7 @@ export class UsersList extends Component {
                                     New User
                                 </Link>
                             </div>
-                            <div className="card-body">
+                            <div className="card-body table-responsive">
                                 <table className="table">
                                     <thead>
                                         <tr>
