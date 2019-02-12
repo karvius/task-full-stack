@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('PlaceholderApiService', function () {
+            return new App\Services\PlaceholderApiService();
+        });
     }
 
     /**
