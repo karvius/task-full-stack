@@ -37,7 +37,10 @@ export class UsersList extends Component {
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
                 <td>
-                    <Link className="btn btn-success btn-sm" to="/edit">
+                    <Link
+                        className="btn btn-success btn-sm"
+                        to={{ pathname: '/edit', state: { user } }}
+                    >
                         Edit
                     </Link>
                     <button
