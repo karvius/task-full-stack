@@ -29,7 +29,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|min:7|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'required|min:9|max:15'
+            'phone' => 'required|numeric|digits_between:7,20'
         ]);
 
         $user = User::create([
@@ -69,7 +69,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|min:7|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'required|min:9|max:15'
+            'phone' => 'required|numeric|digits_between:7,20'
         ]);
 
         $user->name = $validatedData['name'];
