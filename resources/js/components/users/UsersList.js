@@ -31,7 +31,6 @@ export class UsersList extends Component {
     onImportClick() {
         axios.get('api/random').then(() => {
             axios.get('api/user').then(response => {
-                console.log(response.data);
                 this.setState({
                     users: response.data
                 });
