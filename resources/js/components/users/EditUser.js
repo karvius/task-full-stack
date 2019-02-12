@@ -122,7 +122,7 @@ export class EditUser extends Component {
                                         {this.renderErrorFor('phone')}
                                     </div>
                                     <button className="btn btn-primary">
-                                        Create
+                                        Save Changes
                                     </button>
                                 </form>
                             </div>
