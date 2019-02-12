@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export class NewUser extends Component {
@@ -64,7 +65,7 @@ export class NewUser extends Component {
         return (
             <div className="container py-2">
                 <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-md-6 col-centered">
                         <div className="card">
                             <div className="card-header">Create New User</div>
                             <div className="card-body">
@@ -120,6 +121,9 @@ export class NewUser extends Component {
                                     <button className="btn btn-primary">
                                         Create
                                     </button>
+                                    <Link className="btn btn-link" to="/">
+                                        Back
+                                    </Link>
                                 </form>
                             </div>
                         </div>

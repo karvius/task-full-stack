@@ -66,7 +66,7 @@ export class UsersList extends Component {
         return (
             <div className="container py-2">
                 <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-auto col-centered">
                         <div className="card">
                             <div className="card-header">
                                 <Link className="btn btn-primary" to="/create">
@@ -80,7 +80,7 @@ export class UsersList extends Component {
                                 </button>
                             </div>
                             <div className="card-body table-responsive">
-                                <table className="table">
+                                <table className="table w-auto">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
