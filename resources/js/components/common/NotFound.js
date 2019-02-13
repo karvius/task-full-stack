@@ -7,9 +7,9 @@ function NotFound() {
             <div className="row">
                 <div className="col-md-6 col-centered">
                     <div className="card">
-                        <div className="card-header">Page Not Found!</div>
+                        <div className="card-header">404: Page Not Found!</div>
                         <div className="card-body">
-                            <p>Sorry, this page does not exist.</p>
+                            <p>Sorry, this page does not exist!</p>
                             <Link to="/" className="btn btn-block btn-link">
                                 Go Home
                             </Link>
