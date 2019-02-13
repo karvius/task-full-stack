@@ -121,7 +121,10 @@ export class EditUser extends Component {
                                         />
                                         {this.renderErrorFor('phone')}
                                     </div>
-                                    <button className="btn btn-primary mr-1">
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary mr-1"
+                                    >
                                         Save Changes
                                     </button>
                                     <Link className="btn btn-link" to="/">

@@ -118,7 +118,10 @@ export class NewUser extends Component {
                                         />
                                         {this.renderErrorFor('phone')}
                                     </div>
-                                    <button className="btn btn-primary mr-1">
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary mr-1"
+                                    >
                                         Create
                                     </button>
                                     <Link className="btn btn-link" to="/">
