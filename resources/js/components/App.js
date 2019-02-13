@@ -5,6 +5,7 @@ import Header from './common/Header';
 import UsersList from './users/UsersList';
 import NewUser from './users/NewUser';
 import EditUser from './users/EditUser';
+import NotFound from './common/NotFound';
 
 export default class App extends Component {
     render() {
@@ -16,6 +17,7 @@ export default class App extends Component {
                         <Route exact path="/" component={UsersList} />
                         <Route path="/create" component={NewUser} />
                         <Route path="/edit" component={EditUser} />
+                        <Route path="*" component={NotFound} />
                     </Switch>
                 </div>
             </BrowserRouter>
