@@ -48,7 +48,7 @@ export class UsersList extends Component {
                 <td>{user.phone}</td>
                 <td>
                     <Link
-                        className="btn btn-success btn-sm"
+                        className="btn btn-success btn-sm mr-1"
                         to={{ pathname: '/edit', state: { user } }}
                     >
                         Edit
@@ -69,7 +69,10 @@ export class UsersList extends Component {
                     <div className="col-auto col-centered">
                         <div className="card">
                             <div className="card-header">
-                                <Link className="btn btn-primary" to="/create">
+                                <Link
+                                    className="btn btn-primary mr-1"
+                                    to="/create"
+                                >
                                     New User
                                 </Link>
                                 <button
